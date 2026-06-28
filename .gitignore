@@ -1,0 +1,5 @@
+# Ignore Word document reports
+*.docx
+
+# Ignore local screenshots folder
+/final website screenshots/
