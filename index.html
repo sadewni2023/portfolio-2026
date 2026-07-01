@@ -1,66 +1,127 @@
 <!DOCTYPE html>
+<!-- DOCTYPE declaration tells the browser this is an HTML5 document -->
 <html lang="en">
+<!-- lang="en" sets the language of the page to English for accessibility and SEO -->
 <head>
+  <!-- meta charset sets the character encoding to UTF-8 to support all characters -->
   <meta charset="UTF-8" />
+
+  <!-- viewport meta tag makes the page responsive on mobile devices -->
+  <!-- width=device-width sets the width to the device screen width -->
+  <!-- initial-scale=1.0 sets the default zoom level to 100% -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- title tag sets the browser tab title -->
   <title>Sadewni Mendis | Web Developer Portfolio</title>
+
+  <!-- Preconnect links improve performance by starting connection to Google Fonts early -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts: Importing Poppins font with multiple weights (300=light, 400=regular, 500=medium, 600=semibold, 700=bold) -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome CDN: provides icon library used for social media icons, hamburger menu etc. -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- External CSS stylesheet that controls all the styling for this website -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- ===== HEADER / NAVIGATION BAR ===== -->
+  <!-- HTML5 semantic <header> element used for the top navigation section -->
   <header class="navbar">
     <div class="nav-container">
+
+      <!-- Logo / Brand name displayed on the left side of the navbar -->
       <h2 class="logo"><span class="first-letter">S</span>adewni<span>.</span></h2>
+
+      <!-- Hidden checkbox used as a CSS-only toggle trick for the mobile hamburger menu -->
+      <!-- When checked, CSS shows the nav menu on small screens -->
       <input type="checkbox" id="menu-toggle">
+
+      <!-- Label linked to the checkbox above using "for" attribute (same id as checkbox) -->
+      <!-- Clicking this label toggles the checkbox, which opens/closes the mobile menu -->
       <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+
+      <!-- HTML5 semantic <nav> element for the main navigation links -->
       <nav>
+        <!-- class="active" highlights the current page link in the navbar -->
         <a href="index.html" class="active">About</a>
         <a href="blogs.html">Blogs</a>
         <a href="newsletter.html">Newsletter</a>
         <a href="contact.html">Contact</a>
       </nav>
+
+      <!-- Call-to-action button on the right side of the navbar -->
       <a href="contact.html" class="btn talk-btn">Let's Talk</a>
     </div>
   </header>
+
+  <!-- ===== MAIN CONTENT AREA ===== -->
+  <!-- HTML5 semantic <main> element wraps the primary content of the page -->
   <main>
+
+    <!-- Hero section: the first large section visible when the page loads -->
     <section class="hero">
       <div class="hero-content">
+
+        <!-- Left side: text content of the hero section -->
         <div class="text">
+          <!-- h1 is the most important heading on the page - used only once per page for SEO -->
           <h1>Hey! I am <span>Sadewni Mendis</span></h1>
           <h2>Web Developer</h2>
+
+          <!-- Brief bio paragraph with inline styles for text alignment and font size -->
           <p style="text-align:left;font-size: 13px;">
             I'm a Computer Science undergraduate at the University of Westminster with a strong passion for creating interactive, user-friendly web applications. Skilled in HTML, CSS, JavaScript, React, Node.js, and Java, I enjoy transforming creative ideas into impactful digital solutions. Always eager to learn emerging technologies like Kubernetes and Docker,Let's collaborate to build something innovative and meaningful!</p>
+
+          <!-- CTA buttons: Download CV and Contact Info -->
           <div class="hero-buttons">
             <a href="#" class="btn primary">Download CV</a>
             <a href="contact.html" class="btn secondary">Contact info </a>
           </div>
+
           <!-- HTML5 Aside element for side information (social media links) -->
+          <!-- <aside> is used for content that is related but not the main focus -->
           <aside class="social-icons">
+            <!-- target="_blank" opens the link in a new browser tab -->
+            <!-- title attribute shows a tooltip when hovering over the icon -->
             <a href="https://www.linkedin.com/in/sadewni-mendis-441277335/" target="_blank" title="LinkedIn">
+              <!-- Font Awesome icon class for LinkedIn brand icon -->
               <i class="fab fa-linkedin"></i>
             </a>
             <a href="https://github.com/sadewni2023?tab=projects" target="_blank" title="GitHub">
+              <!-- Font Awesome icon class for GitHub brand icon -->
               <i class="fa-brands fa-github"></i>
             </a>
           </aside>
         </div>
+
+        <!-- Right side: profile image -->
         <div class="image">
+          <!-- alt attribute describes the image for screen readers and if image fails to load -->
           <img src="images/profile.png" alt="Sadewni Mendis">
         </div>
+
       </div>
     </section>
   </main>
+
+  <!-- ===== FOOTER SECTION ===== -->
+  <!-- HTML5 semantic <footer> element for the bottom section of the page -->
   <footer>
     <div class="footer-inner">
+      <!-- Social media icons repeated in the footer for easy access -->
       <div class="footer-social">
         <a href="https://www.linkedin.com/in/sadewni-mendis-441277335/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/sadewni2023?tab=projects" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
       </div>
+      <!-- &copy; is an HTML entity that renders the copyright symbol © -->
       <p class="footer-text">&copy; 2026 Sadewni Mendis. All Rights Reserved.</p>
     </div>
   </footer>
+
 </body>
 </html>

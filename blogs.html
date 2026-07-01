@@ -1,42 +1,85 @@
 <!DOCTYPE html>
+<!-- DOCTYPE declaration tells the browser this is an HTML5 document -->
 <html lang="en">
 <head>
+  <!-- meta charset ensures special characters display correctly -->
   <meta charset="UTF-8" />
+
+  <!-- viewport meta tag makes the page responsive on all screen sizes -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Page title shown in the browser tab -->
   <title>Blogs | Sadewni Mendis</title>
+
+  <!-- Google Fonts preconnect for faster font loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Poppins font imported from Google Fonts with multiple weights -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome icon library for social media and UI icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Shared external CSS stylesheet for the entire website -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- ===== HEADER / NAVIGATION BAR ===== -->
+  <!-- Reused across all pages for consistent navigation -->
   <header class="navbar">
     <div class="nav-container">
+
+      <!-- Website logo/brand name -->
       <h2 class="logo"><span class="first-letter">S</span>adewni<span>.</span></h2>
+
+      <!-- CSS-only hamburger menu trick: hidden checkbox acts as a toggle -->
       <input type="checkbox" id="menu-toggle">
+
+      <!-- Hamburger icon (3 lines) - clicking this toggles the mobile menu -->
+      <!-- "for" attribute must match the checkbox "id" to link them together -->
       <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+
+      <!-- Navigation links - class="active" highlights the current page -->
       <nav>
         <a href="index.html">About</a>
+        <!-- class="active" applied to "Blogs" since this is the blogs page -->
         <a href="blogs.html" class="active">Blogs</a>
         <a href="newsletter.html">Newsletter</a>
         <a href="contact.html">Contact</a>
       </nav>
+
+      <!-- CTA button in navbar -->
       <a href="contact.html" class="btn talk-btn">Let's Talk</a>
     </div>
   </header>
+
+  <!-- ===== MAIN CONTENT AREA ===== -->
+  <!-- HTML5 semantic <main> wraps all primary page content -->
   <main class="blog-section">
+
+    <!-- Section heading for the Projects area -->
     <section class="intro">
+      <!-- Single h1 per page for good SEO practice -->
       <h1>My Projects</h1>
       <p>A showcase of some of my key academic and personal development projects.</p>
     </section>
+
+    <!-- ===== PROJECTS SECTION ===== -->
+    <!-- Container that holds all project cards -->
     <section class="projects-container">
+
+      <!-- HTML5 semantic <article> element used for each self-contained project card -->
+      <!-- <article> is appropriate here because each project can stand independently -->
       <article class="project-card">
         <div class="project-header">
           <h3>ArchionLabs</h3>
+          <!-- Span used for the project category tag/badge -->
           <span class="project-tag">AI & 3D Platform</span>
         </div>
         <p>An AI-driven platform converting 2D floor plans into 3D models (Archion Build), crowd simulation with density heatmaps (Archion Sim), accessibility compliance checking (Archion Sim Insight), web-based 3D visualization (Archion View), and secure token-based file sharing (Archion Share).</p>
+        <!-- Technology tags showing the stack used in this project -->
         <div class="project-tech">
           <span>Python</span>
           <span>Next.js</span>
@@ -45,10 +88,12 @@
           <span>Node.js</span>
           <span>Firebase</span>
         </div>
+        <!-- Project link opening in a new tab using target="_blank" -->
         <div class="project-links">
           <a href="https://github.com/sadewni2023?tab=projects" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub Project</a>
         </div>
       </article>
+
       <article class="project-card">
         <div class="project-header">
           <h3>Spacely</h3>
@@ -67,6 +112,7 @@
           <a href="https://github.com/sadewni2023?tab=projects" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub Repo</a>
         </div>
       </article>
+
       <article class="project-card">
         <div class="project-header">
           <h3>MOODO</h3>
@@ -83,6 +129,7 @@
           <a href="https://github.com/sadewni2023?tab=projects" target="_blank" class="project-link"><i class="fab fa-github"></i> Design Folder</a>
         </div>
       </article>
+
       <article class="project-card">
         <div class="project-header">
           <h3>Farmly</h3>
@@ -99,6 +146,7 @@
           <a href="https://github.com/sadewni2023?tab=projects" target="_blank" class="project-link"><i class="fab fa-github"></i> GitHub Code</a>
         </div>
       </article>
+
       <article class="project-card">
         <div class="project-header">
           <h3>University Enrollment System</h3>
@@ -115,18 +163,29 @@
         </div>
       </article>
     </section>
+
+    <!-- ===== BLOG POSTS SECTION ===== -->
     <section class="intro" style="margin-top: 80px;">
       <h1>My Blog Posts</h1>
       <p>Here are some thoughts and updates on my learning journey in web development.</p>
     </section>
+
+    <!-- Container for blog post articles -->
     <section class="blogs-container">
+
+      <!-- Each blog post is wrapped in an <article> tag (HTML5 semantic element) -->
+      <!-- <article> is appropriate because each blog post is independent content -->
       <article class="blog-post">
         <h2>Exploring Modern Frontend Tools</h2>
+        <!-- HTML5 <time> element with datetime attribute for machine-readable date (SEO benefit) -->
         <time datetime="2025-10-15">October 15, 2025</time>
         <p>Frontend development is constantly evolving. I've recently explored tools like React, Vite, and Tailwind CSS. These tools help developers create responsive, efficient, and elegant user interfaces faster than ever.</p>
+        <!-- Hidden paragraph shown/hidden by JavaScript when "Read More" is clicked -->
         <p class="read-more-content">In this deep dive, I explored how Vite's build tools significantly improve development experience with hot module replacement. React's component-based architecture combined with Tailwind's utility-first approach creates a powerful development workflow.</p>
+        <!-- Read More button that triggers the JavaScript toggle below -->
         <a href="#" class="btn secondary read-more">Read More</a>
       </article>
+
       <article class="blog-post">
         <h2>Responsive Design Matters</h2>
         <time datetime="2025-09-25">September 25, 2025</time>
@@ -134,6 +193,7 @@
         <p class="read-more-content">Mobile-first design isn't just a trend - it's a necessity. With over 60% of web traffic coming from mobile devices, implementing responsive design using flexbox, grid, and media queries has become essential for modern web developers.</p>
         <a href="#" class="btn secondary read-more">Read More</a>
       </article>
+
       <article class="blog-post">
         <h2>CSS Grid vs Flexbox</h2>
         <time datetime="2025-08-10">August 10, 2025</time>
@@ -143,6 +203,8 @@
       </article>
     </section>
   </main>
+
+  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-inner">
       <div class="footer-social">
@@ -152,13 +214,21 @@
       <p class="footer-text">&copy; 2026 Sadewni Mendis. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
   <script>
-    // Read More functionality
+    // Read More / Read Less toggle functionality for blog posts
+    // querySelectorAll selects ALL elements with class "read-more"
     document.querySelectorAll('.read-more').forEach(button => {
+      // addEventListener attaches a click event to each button
       button.addEventListener('click', function(e) {
+        // e.preventDefault() stops the page from jumping to the top (default anchor behavior)
         e.preventDefault();
+        // previousElementSibling gets the element directly before this button (the hidden paragraph)
         const content = this.previousElementSibling;
+        // Ternary operator: if already shown, hide it; if hidden, show it
         content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        // Change button text based on the current state
         this.textContent = content.style.display === 'block' ? 'Read Less' : 'Read More';
       });
     });

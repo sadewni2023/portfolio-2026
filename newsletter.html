@@ -1,84 +1,156 @@
 <!DOCTYPE html>
+<!-- DOCTYPE declaration: tells the browser to render this as an HTML5 document -->
 <html lang="en">
 <head>
+  <!-- UTF-8 charset supports all international characters and special symbols -->
   <meta charset="UTF-8" />
+
+  <!-- Responsive viewport meta tag - essential for mobile-first design -->
+  <!-- without this, mobile browsers zoom out to show the desktop version -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Title shown in browser tab for this specific page -->
   <title>Newsletter | Sadewni Mendis</title>
+
+  <!-- Preconnect to Google Fonts servers to reduce latency -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Poppins font with 5 weight variations for typographic flexibility -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome: icon library used for UI icons throughout the site -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Single shared stylesheet for all 4 pages of the website -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- ===== HEADER / NAVIGATION BAR ===== -->
+  <!-- Consistent navigation reused across all pages -->
   <header class="navbar">
     <div class="nav-container">
+
+      <!-- Brand logo on the left -->
       <h2 class="logo"><span class="first-letter">S</span>adewni<span>.</span></h2>
+
+      <!-- CSS hamburger menu toggle: checkbox trick to show/hide mobile nav -->
       <input type="checkbox" id="menu-toggle">
+
+      <!-- The hamburger icon (≡) that users click on mobile to open the nav -->
       <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+
+      <!-- Main navigation links -->
       <nav>
         <a href="index.html">About</a>
         <a href="blogs.html">Blogs</a>
+        <!-- class="active" on Newsletter since this is the current page -->
         <a href="newsletter.html" class="active">Newsletter</a>
         <a href="contact.html">Contact</a>
       </nav>
+
       <a href="contact.html" class="btn talk-btn">Let's Talk</a>
     </div>
   </header>
+
+  <!-- ===== MAIN CONTENT AREA ===== -->
   <main class="newsletter-section">
+
+    <!-- Section containing the newsletter subscription form -->
     <section class="form-container">
+      <!-- Single h1 heading per page (important for SEO) -->
       <h1>Join My Newsletter</h1>
       <p>Stay updated with my latest blog posts, projects, and coding tips. Fill out the form below to subscribe.</p>
+
+      <!-- ===== NEWSLETTER FORM ===== -->
+      <!-- action="#" means the form does not navigate to another page (handled by JavaScript) -->
+      <!-- method="post" sends form data securely in the HTTP request body -->
+      <!-- id="newsletterForm" is used by JavaScript to listen for the submit event -->
       <form action="#" method="post" class="newsletter-form" id="newsletterForm">
+
+        <!-- form-group div groups each label with its input for consistent styling -->
         <div class="form-group">
+          <!-- <label> with "for" attribute links to the input's "id" for accessibility -->
+          <!-- clicking the label focuses the related input field -->
           <label for="name">Full Name:</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required 
+          <!-- type="text" for plain text input -->
+          <!-- required attribute makes this field mandatory - form won't submit if empty -->
+          <!-- pattern attribute uses regex to allow only letters and spaces, minimum 2 chars -->
+          <!-- title attribute shows a tooltip message when the pattern validation fails -->
+          <input type="text" id="name" name="name" placeholder="Enter your name" required
                  pattern="[A-Za-z ]{2,}" title="Please enter at least 2 characters">
         </div>
+
         <div class="form-group">
           <label for="email">Email Address:</label>
+          <!-- type="email" automatically validates the email format (must contain @ and .) -->
+          <!-- required means the user must fill this field before submitting -->
           <input type="email" id="email" name="email" placeholder="Enter your email" required>
         </div>
+
         <div class="form-group">
           <label for="phone">Phone Number (optional):</label>
+          <!-- type="tel" shows a numeric keypad on mobile devices -->
+          <!-- No "required" attribute, so this field is optional -->
           <input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
         </div>
+
         <div class="form-group">
           <label for="website">Your Website (optional):</label>
+          <!-- type="url" validates that the input starts with http:// or https:// -->
           <input type="url" id="website" name="website" placeholder="https://example.com">
         </div>
+
         <div class="form-group">
           <label for="topic">Interested Topics:</label>
+          <!-- <select> creates a dropdown menu for predefined choices -->
           <select id="topic" name="topic">
+            <!-- Default placeholder option with empty value -->
             <option value="">Select a topic</option>
+            <!-- Each <option> has a value (sent to server) and display text (shown to user) -->
             <option value="frontend">Frontend Development</option>
             <option value="backend">Backend Development</option>
             <option value="fullstack">Full Stack Development</option>
             <option value="design">UI/UX Design</option>
           </select>
         </div>
+
         <div class="form-group">
           <label for="frequency">Newsletter Frequency:</label>
+          <!-- Radio buttons: only ONE option can be selected at a time -->
+          <!-- All radio buttons share the same name="frequency" to form a group -->
           <div class="radio-group">
             <label><input type="radio" name="frequency" value="weekly"> Weekly</label>
             <label><input type="radio" name="frequency" value="monthly"> Monthly</label>
             <label><input type="radio" name="frequency" value="quarterly"> Quarterly</label>
           </div>
         </div>
+
         <div class="form-group">
           <label for="message">Message (optional):</label>
+          <!-- <textarea> creates a multi-line text input box -->
+          <!-- rows="4" sets the visible height of the textarea to 4 lines -->
           <textarea id="message" name="message" rows="4" placeholder="Your message here..."></textarea>
         </div>
+
+        <!-- Checkbox for consent/agreement - required before submitting -->
         <div class="form-group checkbox-group">
           <label>
+            <!-- type="checkbox" creates a tick box -->
+            <!-- required means the checkbox must be ticked to submit the form -->
             <input type="checkbox" name="agree" required>
             I agree to receive newsletter emails
           </label>
         </div>
+
+        <!-- Submit button: type="submit" triggers form validation and the submit event -->
         <button type="submit" class="btn primary">Subscribe Now</button>
       </form>
     </section>
   </main>
+
+  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-inner">
       <div class="footer-social">
@@ -88,10 +160,16 @@
       <p class="footer-text">&copy; 2026 Sadewni Mendis. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
   <script>
+    // Attach a submit event listener to the newsletter form using its id
     document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+      // e.preventDefault() stops the default browser behavior (page reload/navigation)
       e.preventDefault();
+      // alert() shows a popup confirmation message to the user
       alert('Thank you for subscribing to our newsletter!');
+      // this.reset() clears all form fields back to their default empty state
       this.reset();
     });
   </script>

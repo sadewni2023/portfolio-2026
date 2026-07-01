@@ -1,36 +1,73 @@
 <!DOCTYPE html>
+<!-- DOCTYPE declaration: instructs the browser to use HTML5 standards mode -->
 <html lang="en">
 <head>
+  <!-- charset="UTF-8" ensures all characters, symbols, and emoji render correctly -->
   <meta charset="UTF-8" />
+
+  <!-- Responsive viewport meta: prevents mobile browsers from scaling down the page -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Browser tab title for the Contact page -->
   <title>Contact | Sadewni Mendis</title>
+
+  <!-- Early DNS resolution for Google Fonts to speed up loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Poppins font imported for consistent typography across the website -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome CDN for scalable vector icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- External shared stylesheet that styles the entire website -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- ===== HEADER / NAVIGATION BAR ===== -->
   <header class="navbar">
     <div class="nav-container">
+
+      <!-- Website logo/brand displayed on the left of the navbar -->
       <h2 class="logo"><span class="first-letter">S</span>adewni<span>.</span></h2>
+
+      <!-- Hidden checkbox input used as the toggle mechanism for mobile menu -->
+      <!-- CSS uses :checked pseudo-class to show/hide the nav on small screens -->
       <input type="checkbox" id="menu-toggle">
+
+      <!-- Hamburger menu icon: clicking this label toggles the checkbox above -->
       <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+
+      <!-- Navigation menu with links to all 4 pages -->
       <nav>
         <a href="index.html">About</a>
         <a href="blogs.html">Blogs</a>
         <a href="newsletter.html">Newsletter</a>
+        <!-- class="active" marks Contact as the current active page -->
         <a href="contact.html" class="active">Contact</a>
       </nav>
+
+      <!-- CTA button that links directly to this contact page -->
       <a href="contact.html" class="btn talk-btn">Let's Talk</a>
     </div>
   </header>
+
+  <!-- ===== MAIN CONTENT AREA ===== -->
+  <!-- The contact page has a two-column layout: contact info on left, form on right -->
   <main class="contact-page-container">
+
+    <!-- ===== LEFT COLUMN: Contact Information ===== -->
     <section class="contact-details">
+      <!-- Single h1 per page for SEO best practice -->
       <h1>Get In Touch</h1>
       <p class="subtitle">Have an interesting project, job opportunity, or just want to say hello? Feel free to drop a message, and I'll get back to you as soon as possible.</p>
+
+      <!-- Contact info cards for Email, Phone, and Location -->
       <div class="contact-card">
         <div class="icon-box">
+          <!-- Font Awesome envelope icon for email -->
           <i class="fa-solid fa-envelope"></i>
         </div>
         <div class="info">
@@ -38,8 +75,10 @@
           <p>infosadewni@gmail.com</p>
         </div>
       </div>
+
       <div class="contact-card">
         <div class="icon-box">
+          <!-- Font Awesome phone icon for phone number -->
           <i class="fa-solid fa-phone"></i>
         </div>
         <div class="info">
@@ -47,8 +86,10 @@
           <p>+94 70 366 5350</p>
         </div>
       </div>
+
       <div class="contact-card">
         <div class="icon-box">
+          <!-- Font Awesome location pin icon for address -->
           <i class="fa-solid fa-location-dot"></i>
         </div>
         <div class="info">
@@ -56,9 +97,13 @@
           <p>Galle, Sri Lanka</p>
         </div>
       </div>
+
       <h3 class="social-title">Follow My Work</h3>
+
       <!-- HTML5 Aside element for side information (social media links) -->
+      <!-- <aside> contains content related to but not part of the main content -->
       <aside class="social-icons">
+        <!-- target="_blank" opens the link in a new tab so user doesn't leave the page -->
         <a href="https://www.linkedin.com/in/sadewni-mendis-441277335/" target="_blank" title="LinkedIn">
           <i class="fab fa-linkedin"></i>
         </a>
@@ -67,45 +112,75 @@
         </a>
       </aside>
     </section>
+
+    <!-- ===== RIGHT COLUMN: Contact Form ===== -->
     <section class="form-container">
+      <!-- action="#" prevents page navigation on submit (JavaScript handles it instead) -->
+      <!-- method="post" submits data in the request body (not visible in the URL) -->
+      <!-- id="contactForm" used by JavaScript to attach the submit event listener -->
       <form action="#" method="post" class="contact-form" id="contactForm">
+
         <div class="form-group">
+          <!-- <label> "for" attribute must match the input "id" for accessibility -->
           <label for="contact-name">Full Name:</label>
-          <input type="text" id="contact-name" name="name" placeholder="Enter your full name" required 
+          <!-- type="text" for plain text entry -->
+          <!-- required makes this a mandatory field -->
+          <!-- pattern uses regex: only letters (A-Z, a-z) and spaces, minimum 2 characters -->
+          <!-- title shows an error tooltip when the pattern is not matched -->
+          <input type="text" id="contact-name" name="name" placeholder="Enter your full name" required
                  pattern="[A-Za-z ]{2,}" title="Please enter at least 2 alphabetic characters">
         </div>
+
         <div class="form-group">
           <label for="contact-email">Email Address:</label>
+          <!-- type="email" provides built-in browser validation for email format -->
           <input type="email" id="contact-email" name="email" placeholder="Enter your email address" required>
         </div>
+
         <div class="form-group">
           <label for="contact-subject">Subject:</label>
+          <!-- minlength="3" enforces a minimum character count of 3 -->
           <input type="text" id="contact-subject" name="subject" placeholder="What is this regarding?" required
                  minlength="3" title="Please enter at least 3 characters">
         </div>
+
         <div class="form-group">
           <label for="contact-message">Message:</label>
+          <!-- <textarea> allows multi-line text input -->
+          <!-- rows="6" sets the visible height (number of text lines shown) -->
+          <!-- minlength="10" ensures at least 10 characters are entered -->
           <textarea id="contact-message" name="message" rows="6" placeholder="Your message details here..." required
                     minlength="10" title="Please enter at least 10 characters"></textarea>
         </div>
+
+        <!-- type="submit" triggers browser form validation and fires the submit event -->
         <button type="submit" class="btn primary">Send Message</button>
       </form>
     </section>
   </main>
+
+  <!-- ===== FOOTER ===== -->
   <footer>
     <div class="footer-inner">
       <div class="footer-social">
         <a href="https://www.linkedin.com/in/sadewni-mendis-441277335/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         <a href="https://github.com/sadewni2023?tab=projects" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
       </div>
+      <!-- &copy; is the HTML entity for the © copyright symbol -->
       <p class="footer-text">&copy; 2026 Sadewni Mendis. All Rights Reserved.</p>
     </div>
   </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
   <script>
+    // Attach a submit event listener to the contact form using its id
     document.getElementById('contactForm').addEventListener('submit', function(e) {
+      // e.preventDefault() stops the default form submission (which would reload the page)
       e.preventDefault();
-      // Basic visual success response
+      // Basic visual success response - shows a personalised alert to the user
+      // document.getElementById('contact-name').value reads the value typed in the name field
       alert('Thank you, ' + document.getElementById('contact-name').value + '! Your message has been sent successfully.');
+      // this.reset() clears all input fields in the form back to empty
       this.reset();
     });
   </script>
